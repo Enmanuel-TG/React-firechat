@@ -1,12 +1,10 @@
 import { db, firebase } from "./config/firebase";
 import Button from "./components/Button";
 import { useAuthState } from "./hooks";
-import { signOut } from "./login";
-import { signInWithGoogle } from './login'
-
+import { signOut, signInWithGoogle } from "./login";
 function App() {
 
-  const { itializing, user } = useAuthState(firebase.auth());
+  const { initializing, user } = useAuthState(firebase.auth());
 
   // const signInWithGoogle = async () => {
   //   firebase.auth().useDeviceLanguage();
@@ -18,8 +16,17 @@ function App() {
   //   }
   // };
 
+  const renderLoading = () => {
+    if (initializing) {
+      return <div>
+        <h1>Cargando Espera ...</h1>
+      </div>
+    }
+  }
+
   return (
     <div>
+      {renderLoading()}
       {
         user ? (
           <>
@@ -32,3 +39,4 @@ function App() {
   );
 }
 export default App;
+
