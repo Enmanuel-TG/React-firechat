@@ -13,7 +13,12 @@ const Channel = ({ user = null }) => {
         });
         return unsubscribe;
     }, [])
-    return <ul></ul>
+    return (    <ul>
+        {message.map(message => (
+            <li key={message.id}>  {message.text}</li>
+        ))}
+    </ul>
+    );
 };
 
 export default Channel;

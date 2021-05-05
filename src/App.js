@@ -1,7 +1,7 @@
-import { db, firebase } from "./config/firebase";
-import Button from "./components/Button";
-import { useAuthState } from "./hooks";
+import { Button, Channel} from "./components";
 import { signOut, signInWithGoogle } from "./login";
+import { useAuthState } from "./hooks";
+import { firebase } from "./config/firebase";
 function App() {
 
   const { initializing, user } = useAuthState(firebase.auth());
