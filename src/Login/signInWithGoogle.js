@@ -1,6 +1,7 @@
-import { singAuthProdive, firebase, googleAuthProvider } from '../config/firebase';
+import {firebase, googleAuthProvider } from '../config/firebase';
 
-const singInWithGoogle = async () => {
+
+const signInWithGoogle = async () => {
     firebase.auth().useDeviceLanguage();
 
     try {
@@ -11,4 +12,4 @@ const singInWithGoogle = async () => {
     }
 
 };
-export default singInWithGoogle;
+export default signInWithGoogle;

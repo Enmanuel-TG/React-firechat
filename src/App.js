@@ -1,16 +1,22 @@
-import { db, googleAuthProvider, firebase } from "./config/firebase";
+import { db, firebase } from "./config/firebase";
 import Button from "./components/Button";
+import { useAuthState } from "./hooks";
+import { signOut } from "./login";
+import { signInWithGoogle } from './login'
 
 function App() {
-  const signInWithGoogle = async () => {
-    firebase.auth().useDeviceLanguage();
 
-    try {
-      await firebase.auth().signInWithPopup(googleAuthProvider);
-    } catch (e) {
-      console.error(e.message);
-    }
-  };
+  const { itializing, user } = useAuthState(firebase.auth());
+
+  // const signInWithGoogle = async () => {
+  //   firebase.auth().useDeviceLanguage();
+
+  //   try {
+  //     await firebase.auth().signInWithPopup(googleAuthProvider);
+  //   } catch (e) {
+  //     console.error(e.message);
+  //   }
+  // };
 
   return (
     <div>
