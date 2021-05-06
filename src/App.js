@@ -1,4 +1,4 @@
-import { Button, Channel} from "./components";
+import { Button, Channel } from "./components";
 import { signOut, signInWithGoogle } from "./login";
 import { useAuthState } from "./hooks";
 import { firebase } from "./config/firebase";
@@ -25,17 +25,18 @@ function App() {
   }
 
   return (
-    <div>
+    <>
       {renderLoading()}
       {
         user ? (
           <>
             <Button onClick={signOut} > Sing in with Google</Button>
             <p> Bienvenidos al CHAT!</p>
+            <Channel user={user} />
           </>
         ) : <Button onClick={signInWithGoogle} > Sing in with Google </Button>
       }
-    </div>
+    </>
   );
 }
 export default App;

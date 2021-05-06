@@ -1,6 +1,10 @@
+import { useState, useEffect } from 'react';
+import { db } from "../config/firebase";
+
+
 const Channel = ({ user = null }) => {
 
-    const [message, setMessage] = useState([]);
+    const [message, setMessages] = useState([]);
     useEffect(() => {
         const query = db.collection("messages").orderBy("createdAt").limit(100);
 
@@ -9,11 +13,11 @@ const Channel = ({ user = null }) => {
                 ...doc.data(),
                 id: doc.id,
             }));
-               setMessages(data);
+            setMessages(data);
         });
         return unsubscribe;
     }, [])
-    return (    <ul>
+    return (<ul>
         {message.map(message => (
             <li key={message.id}>  {message.text}</li>
         ))}
