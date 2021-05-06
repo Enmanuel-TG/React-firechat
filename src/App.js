@@ -6,15 +6,6 @@ function App() {
 
   const { initializing, user } = useAuthState(firebase.auth());
 
-  // const signInWithGoogle = async () => {
-  //   firebase.auth().useDeviceLanguage();
-
-  //   try {
-  //     await firebase.auth().signInWithPopup(googleAuthProvider);
-  //   } catch (e) {
-  //     console.error(e.message);
-  //   }
-  // };
 
   const renderLoading = () => {
     if (initializing) {
