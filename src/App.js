@@ -2,6 +2,8 @@ import { Button, Channel } from "./components";
 import { signOut, signInWithGoogle } from "./login";
 import { useAuthState } from "./hooks";
 import { firebase } from "./config/firebase";
+
+
 function App() {
 
   const { initializing, user } = useAuthState(firebase.auth());
@@ -20,12 +22,15 @@ function App() {
       {renderLoading()}
       {
         user ? (
-          <>
-            <Button onClick={signOut} > Salir</Button>
+          <p>
+            <Button onClick={signOut} estilos="salir" > Salir</Button>
             <p> Bienvenidos al Chat!</p>
+            <br />
+
             <Channel user={user} />
-          </>
-        ) : <Button onClick={signInWithGoogle} > Sign in with Google </Button>
+          </p>
+        )
+          : <p><Button onClick={signInWithGoogle} estilos="iniciar" > Sign in with Google </Button></p>
       }
     </>
   );

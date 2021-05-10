@@ -1,7 +1,7 @@
 import {firebase, googleAuthProvider } from '../config/firebase';
 
 
-const signInWithGoogle = async () => {
+const signInWithGoogle  = async () => {
     firebase.auth().useDeviceLanguage();
 
     try {
